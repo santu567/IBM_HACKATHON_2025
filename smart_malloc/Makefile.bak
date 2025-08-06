@@ -31,25 +31,13 @@ $(TEST_TARGET): $(TEST_OBJECTS)
 simple_tests: $(SIMPLE_TEST_OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Build the demo executable
-best_fit_demo: test_best_fit_demo.o $(SRCDIR)/memory_allocator.o
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-# Build the coalescing demo executable
-coalescing_demo: coalescing_demo.o $(SRCDIR)/memory_allocator.o
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-# Build the thread safety test executable
-thread_safety_test: thread_safety_test.o $(SRCDIR)/memory_allocator.o
-	$(CXX) $(CXXFLAGS) -o $@ $^ -pthread
-
 # Compile source files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean build artifacts
 clean:
-	rm -f $(OBJECTS) $(TEST_OBJECTS) $(SIMPLE_TEST_OBJECTS) $(TARGET) $(TEST_TARGET) simple_tests best_fit_demo test_best_fit_demo.o coalescing_demo coalescing_demo.o thread_safety_test thread_safety_test.o
+	rm -f $(OBJECTS) $(TEST_OBJECTS) $(SIMPLE_TEST_OBJECTS) $(TARGET) $(TEST_TARGET) simple_tests
 
 # Run the program
 run: $(TARGET)
@@ -71,21 +59,6 @@ simple-test: simple_tests
 	@echo "Running simple tests..."
 	./simple_tests
 
-# Run best-fit demo
-demo: best_fit_demo
-	@echo "Running best-fit allocation demo..."
-	./best_fit_demo
-
-# Run coalescing demo
-coalescing-demo: coalescing_demo
-	@echo "Running block coalescing demo..."
-	./coalescing_demo
-
-# Run thread safety test
-thread-test: thread_safety_test
-	@echo "Running thread safety test..."
-	./thread_safety_test
-
 # Build and run unit tests
 test-all: simple-test
 
@@ -106,9 +79,6 @@ help:
 	@echo "  test      - Run basic tests"
 	@echo "  unit-test - Build and run unit tests (requires Google Test)"
 	@echo "  simple-test - Build and run simple tests (no dependencies)"
-	@echo "  demo      - Run best-fit allocation demo"
-	@echo "  coalescing-demo - Run block coalescing demo"
-	@echo "  thread-test - Run thread safety test"
 	@echo "  test-all  - Run all tests"
 	@echo "  install   - Install to /usr/local/bin"
 	@echo "  uninstall - Remove from /usr/local/bin"
