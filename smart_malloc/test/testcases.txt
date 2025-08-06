@@ -1,0 +1,28 @@
+# Memory Allocator Test Cases
+# Copy and paste these commands into the CLI for testing
+
+# Basic allocation tests
+alloc 1024
+alloc 2048
+alloc 512
+alloc 4096
+
+# Check statistics
+stats
+
+# Free some blocks (use addresses from alloc output)
+free 0x7fff5c000000
+free 0x7fff5c001000
+
+# Check for leaks
+leakcheck
+
+# More allocations
+alloc 1024
+alloc 3072
+
+# Final statistics
+stats
+
+# Exit
+exit
