@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build artifacts
+**/build/
+**/dist/
+**/out/
+
+# C/C++
+**/*.o
+**/*.obj
+**/*.lo
+**/*.la
+**/*.a
+**/*.lib
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.exe
+**/*.out
+**/*.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+Testing/
+CTestTestfile.cmake
+
+# Xcode / dSYM
+**/*.dSYM/
+
+# Logs
+*.log
+
+# Local scripts and test outputs
+smart_malloc/simple_tests/
+smart_malloc/*_demo
+smart_malloc/*.dSYM/

@@ -6,7 +6,8 @@
 #include <map>
 #include <limits>
 
-// ANSI Color Codes
+//colors
+
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
 #define YELLOW  "\033[33m"
@@ -18,7 +19,7 @@
 void print_banner() {
     std::cout << CYAN << "╔══════════════════════════════════════════════════════════════╗" << RESET << std::endl;
     std::cout << CYAN << "║                    Custom Memory Allocator                   ║" << RESET << std::endl;
-    std::cout << CYAN << "║                        Version 2.0                          ║" << RESET << std::endl;
+    std::cout << CYAN << "║                        Version 2.0                           ║" << RESET << std::endl;
     std::cout << CYAN << "╚══════════════════════════════════════════════════════════════╝" << RESET << std::endl;
     std::cout << std::endl;
 }
